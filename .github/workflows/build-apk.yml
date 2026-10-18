@@ -1,0 +1,97 @@
+name: Build Watomatic FOSS APK
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Release FOSS APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build Default Debug APK
+        run: ./gradlew assembleDefaultDebug
+
+      - name: Build Default Release APK
+        run: ./gradlew assembleDefaultRelease
+
+      - name: Sign Release APK
+        run: |
+          # Generate a dedicated signing keystore
+          keytool -genkeypair -v -keystore release.jks -alias watomatic -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass watomatic123 -keypass watomatic123 \
+            -dname "CN=Watomatic FOSS, OU=Development, O=OpenSource, L=Sana'a, C=YE"
+          
+          # Find Android build tools
+          BUILD_TOOLS_DIR=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -n 1)
+          echo "Using build tools from $BUILD_TOOLS_DIR"
+          
+          # Find unsigned release APK
+          UNSIGNED_APK=$(find app/build/outputs/apk/Default/release/ -name "*.apk" | head -n 1)
+          echo "Found unsigned APK: $UNSIGNED_APK"
+          
+          # Align & Sign Release APK
+          $BUILD_TOOLS_DIR/zipalign -v -p 4 "$UNSIGNED_APK" app/build/outputs/apk/Default/release/aligned.apk || cp "$UNSIGNED_APK" app/build/outputs/apk/Default/release/aligned.apk
+          $BUILD_TOOLS_DIR/apksigner sign --ks release.jks --ks-pass pass:watomatic123 --key-pass pass:watomatic123 \
+            --out Watomatic-v1.36-FOSS-Release.apk app/build/outputs/apk/Default/release/aligned.apk
+          
+          # Copy Debug APK for artifact upload
+          cp app/build/outputs/apk/Default/debug/*.apk Watomatic-v1.36-FOSS-Debug.apk
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Watomatic-FOSS-APKs
+          path: |
+            Watomatic-v1.36-FOSS-Release.apk
+            Watomatic-v1.36-FOSS-Debug.apk
+          retention-days: 14
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.36-foss
+          name: "Watomatic v1.36 FOSS (Default Flavor)"
+          body: |
+            ### 🤖 Watomatic v1.36 FOSS Edition (Default Flavor)
+            
+            Clean build of Watomatic from the official `main` branch (versionCode 36 / v1.36) compiled with the **`Default`** FOSS flavor.
+            
+            #### 🌟 Highlights & Key Features:
+            - **No Google Play Billing / No Firebase**: 100% Free and Open Source.
+            - **OpenAI Compatible Base URL**: In `Settings -> Custom Reply -> Other AI`, select **`OpenAI Compatible`** and enter your custom server endpoint (e.g. AbdehGate or your own local/cloud LLM gateway).
+            - **Custom System Prompt**: Define custom personality and behavior instructions.
+            - **Dynamic Model Fetching**: Automatically detects available models via `GET /models`.
+            - **Zero Ban Risk**: Uses native Android `NotificationListenerService` and `RemoteInput`.
+            - **Multi-Messenger Support**: WhatsApp, WhatsApp Business, Telegram, Facebook Messenger.
+            
+            #### 📦 Included APKs:
+            - `Watomatic-v1.36-FOSS-Release.apk` (Optimized, minified, signed with v2/v3)
+            - `Watomatic-v1.36-FOSS-Debug.apk` (Debug build with verbose logs)
+          files: |
+            Watomatic-v1.36-FOSS-Release.apk
+            Watomatic-v1.36-FOSS-Debug.apk
+          draft: false
+          prerelease: false
