@@ -499,7 +499,7 @@ class CustomReplyEditorActivity : BaseActivity(), SharedPreferences.OnSharedPref
                 automaticAiStatusIcon?.setImageResource(R.drawable.ic_task_alt)
                 automaticAiStatusIcon?.setColorFilter(0xFF34C759.toInt())
 
-                automaticAiStatusText?.text = "Status: Configured"
+                automaticAiStatusText?.text = getString(R.string.status_configured)
                 automaticAiStatusText?.setTextColor(0xFF34C759.toInt())
                 automaticAiStatusText?.visibility = android.view.View.VISIBLE
 
@@ -580,7 +580,7 @@ class CustomReplyEditorActivity : BaseActivity(), SharedPreferences.OnSharedPref
                 automaticAiStatusIcon?.setImageResource(R.drawable.ic_error_outline)
                 automaticAiStatusIcon?.setColorFilter(0xFFFF453A.toInt())
 
-                automaticAiStatusText?.text = "Status: Not Configured"
+                automaticAiStatusText?.text = getString(R.string.status_not_configured)
                 automaticAiStatusText?.setTextColor(0xFFFF453A.toInt()) // Red text for not configured
                 automaticAiStatusText?.visibility = android.view.View.VISIBLE
 
@@ -631,13 +631,13 @@ class CustomReplyEditorActivity : BaseActivity(), SharedPreferences.OnSharedPref
             if (hasApiKey) {
                 // Configured - API key is set
                 findViewById<TextView>(R.id.other_ai_status_text)?.apply {
-                    text = "Status: Configured"
+                    text = getString(R.string.status_configured)
                     setTextColor(0xFF34C759.toInt()) // Green for configured
                 }
             } else {
                 // Not configured - API key not set or pending
                 findViewById<TextView>(R.id.other_ai_status_text)?.apply {
-                    text = "Status: Not Configured"
+                    text = getString(R.string.status_not_configured)
                     setTextColor(0xFFFF453A.toInt()) // Red for not configured
                 }
             }

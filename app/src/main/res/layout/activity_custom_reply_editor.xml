@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationContentDescription="@string/back"
             app:navigationIconTint="?attr/colorOnSurface"
             app:titleTextColor="?attr/colorOnSurface"
             app:titleCentered="true"
@@ -99,7 +100,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Static predefined responses for all messages."
+                            android:text="@string/manual_replies_desc"
                             android:textSize="14sp"
                             android:textColor="?android:textColorSecondary"
                             android:layout_marginTop="2dp" />
@@ -125,7 +126,7 @@
                         android:focusable="true"
                         android:background="?android:selectableItemBackgroundBorderless"
                         android:padding="4dp"
-                        android:contentDescription="@string/settings" />
+                        android:contentDescription="@string/edit_manual_reply" />
 
                     <!-- Check Icon (shows only when selected) -->
                     <ImageView
@@ -219,7 +220,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Instant, context-aware replies powered by our servers."
+                                android:text="@string/automatic_ai_desc"
                                 android:textSize="14sp"
                                 android:textColor="?android:textColorSecondary"
                                 android:layout_marginTop="2dp" />
@@ -288,7 +289,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Status: Not Subscribed"
+                                android:text="@string/status_not_subscribed"
                                 android:textSize="15sp"
                                 android:textStyle="bold"
                                 android:textColor="?android:textColorPrimary"
@@ -478,7 +479,7 @@
                                 android:id="@+id/other_ai_provider_desc"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Use your own AI API provider credentials."
+                                android:text="@string/byok_replies_desc"
                                 android:textSize="14sp"
                                 android:textColor="?android:textColorSecondary"
                                 android:layout_marginTop="2dp" />
@@ -495,7 +496,7 @@
                             android:focusable="true"
                             android:background="?android:selectableItemBackgroundBorderless"
                             android:padding="4dp"
-                            android:contentDescription="@string/settings" />
+                            android:contentDescription="@string/configure_custom_ai" />
 
                         <!-- Check Icon (shows only when selected) -->
                         <ImageView
@@ -530,7 +531,7 @@
                             android:id="@+id/other_ai_status_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Status: Not Configured"
+                            android:text="@string/status_not_configured"
                             android:textSize="13sp"
                             android:textColor="?android:textColorSecondary"
                             android:paddingHorizontal="16dp"

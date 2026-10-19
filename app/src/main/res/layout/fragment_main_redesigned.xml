@@ -43,6 +43,7 @@
                     android:id="@+id/switch_auto_replies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/mainAutoReplyLabel"
                     android:checked="true" />
 
             </LinearLayout>
@@ -82,6 +83,7 @@
                     <!-- Edit Button integrated into the card -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_edit"
+                        android:contentDescription="@string/mainAutoReplyEditBtnTooltip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="top|end"

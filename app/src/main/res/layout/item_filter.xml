@@ -26,6 +26,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_users"
                 app:tint="?android:attr/textColorPrimary" />
         </FrameLayout>
@@ -62,6 +63,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/ic_caret_right"
             app:tint="?android:attr/textColorPrimary" />
     </LinearLayout>
@@ -87,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_chat_circle_dots"
                 app:tint="?android:attr/textColorPrimary" />
         </FrameLayout>
@@ -123,6 +126,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/ic_caret_right"
             app:tint="?android:attr/textColorPrimary" />
     </LinearLayout>
@@ -148,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_app_window"
                 app:tint="?android:attr/textColorPrimary" />
         </FrameLayout>
@@ -184,6 +189,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/ic_caret_right"
             app:tint="?android:attr/textColorPrimary" />
     </LinearLayout>
@@ -209,6 +215,7 @@
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_clock"
                 app:tint="?android:attr/textColorPrimary" />
         </FrameLayout>
@@ -245,6 +252,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/ic_caret_right"
             app:tint="?android:attr/textColorPrimary" />
     </LinearLayout>

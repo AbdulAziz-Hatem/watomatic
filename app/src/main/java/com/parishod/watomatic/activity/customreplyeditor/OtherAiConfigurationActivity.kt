@@ -210,11 +210,11 @@ class OtherAiConfigurationActivity : AppCompatActivity() {
                 val apiKey = apiKeyInput.text.toString()
 
                 if (provider.isEmpty()) {
-                    Toast.makeText(this, "Please select an LLM provider first.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_select_llm_provider), Toast.LENGTH_SHORT).show()
                     return@setOnTouchListener true
                 }
                 if (apiKey.isEmpty()) {
-                    Toast.makeText(this, "Enter an API key to fetch available models.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_enter_api_key_for_models), Toast.LENGTH_SHORT).show()
                     return@setOnTouchListener true
                 }
                 // If models are not fetched yet, we might want to trigger fetch or check if adapter is empty
@@ -311,14 +311,14 @@ class OtherAiConfigurationActivity : AppCompatActivity() {
                     updateModelDropdown(models)
                 } else {
                     Log.e("OtherAiConfig", "Error fetching models: ${response.code()}")
-                    Toast.makeText(this@OtherAiConfigurationActivity, "Error fetching models: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@OtherAiConfigurationActivity, getString(R.string.toast_error_fetching_models, response.code().toString()), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<OpenAIModelsResponse>, t: Throwable) {
                 if (call.isCanceled) return
                 Log.e("OtherAiConfig", "Failed to fetch models", t)
-                Toast.makeText(this@OtherAiConfigurationActivity, "Failed to fetch models: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@OtherAiConfigurationActivity, getString(R.string.toast_failed_to_fetch_models, t.message ?: ""), Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -338,11 +338,11 @@ class OtherAiConfigurationActivity : AppCompatActivity() {
         val model = modelInput.text.toString()
 
         if (apiKey.isEmpty()) {
-            Toast.makeText(this, "API key cannot be empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_api_key_empty), Toast.LENGTH_SHORT).show()
             return
         }
         if (model.isEmpty()) {
-            Toast.makeText(this, "Select a model", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_select_model), Toast.LENGTH_SHORT).show()
             return
         }
 

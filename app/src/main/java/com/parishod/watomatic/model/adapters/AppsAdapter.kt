@@ -90,6 +90,13 @@ class AppsAdapter(
                     appHolder.toggle.isEnabled = false
                 }
                 appHolder.name.text = appItem.name
+                appHolder.icon.importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                appHolder.toggle.contentDescription = appItem.name
+                if (icon != null) {
+                    appHolder.itemView.setOnClickListener {
+                        appHolder.toggle.isChecked = !appHolder.toggle.isChecked
+                    }
+                }
 
             }
         }

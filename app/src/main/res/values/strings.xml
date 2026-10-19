@@ -454,4 +454,41 @@
     <string name="quota_exhausted_message">Your quota has been completed. Please upgrade to a higher plan to continue using the service.</string>
     <string name="quota_exhausted_message_highest_plan">Your quota has been completed. It will renew on %1$s.</string>
     <string name="upgrade_now">Upgrade</string>
+
+    <!-- Accessibility and Layout Strings -->
+    <string name="back">Back</string>
+    <string name="nav_atomatic">Atomatic</string>
+    <string name="nav_community">Community</string>
+    <string name="ai_config_title">AI Configuration</string>
+    <string name="llm_settings_title">LLM Settings</string>
+    <string name="llm_settings_desc">Configure the AI model for your auto-replies.</string>
+    <string name="llm_provider_label">LLM Provider</string>
+    <string name="api_key_label">API Key</string>
+    <string name="api_key_security_note">Your API key is stored securely on your device.</string>
+    <string name="model_label">Model</string>
+    <string name="select_model_hint">Select a model</string>
+    <string name="system_prompt_label">System Prompt</string>
+    <string name="save_configuration">Save Configuration</string>
+    <string name="base_url_label">Base URL (Custom Provider)</string>
+    <string name="manual_replies_desc">Static predefined responses for all messages.</string>
+    <string name="byok_replies_desc">Use your own AI API provider credentials.</string>
+    <string name="automatic_ai_desc">Instant, context-aware replies powered by our servers.</string>
+    <string name="status_not_subscribed">Status: Not Subscribed</string>
+    <string name="status_not_configured">Status: Not Configured</string>
+    <string name="status_configured">Status: Configured</string>
+    <string name="edit_manual_reply">Edit manual reply</string>
+    <string name="configure_custom_ai">Configure custom AI provider</string>
+    <string name="star_rating_1">1 Star</string>
+    <string name="star_rating_2">2 Stars</string>
+    <string name="star_rating_3">3 Stars</string>
+    <string name="star_rating_4">4 Stars</string>
+    <string name="star_rating_5">5 Stars</string>
+
+    <!-- Other AI Configuration Toasts -->
+    <string name="toast_select_llm_provider">Please select an LLM provider first.</string>
+    <string name="toast_enter_api_key_for_models">Enter an API key to fetch available models.</string>
+    <string name="toast_error_fetching_models">Error fetching models: %1</string>
+    <string name="toast_failed_to_fetch_models">Failed to fetch models: %1</string>
+    <string name="toast_api_key_empty">API key cannot be empty</string>
+    <string name="toast_select_model">Select a model</string>
 </resources>

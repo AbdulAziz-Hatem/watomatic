@@ -18,6 +18,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/star1"
+                android:contentDescription="@string/star_rating_1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toStartOf="@+id/star2"
@@ -30,6 +31,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/star2"
+                android:contentDescription="@string/star_rating_2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toStartOf="@+id/star3"
@@ -41,6 +43,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/star3"
+                android:contentDescription="@string/star_rating_3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toStartOf="@+id/star4"
@@ -52,6 +55,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/star4"
+                android:contentDescription="@string/star_rating_4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toStartOf="@+id/star5"
@@ -63,6 +67,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/star5"
+                android:contentDescription="@string/star_rating_5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
