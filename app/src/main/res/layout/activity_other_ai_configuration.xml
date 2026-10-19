@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textUri"
-                    app:hint="@string/base_url_label" />
+                    android:hint="@string/base_url_label" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- API Key -->
