@@ -245,7 +245,7 @@
     <string name="need_help_learn_more">المزيد من المعلومات والمساعدة</string>
     <string name="atomatic_ai">ذكاء Atomatic الاصطناعي</string>
     <string name="managed_smart_responses">ردود ذكية مدارة سحابياً</string>
-    <string name="bring_your_own_key">استخدام مفاتيحك الخاصة (BYOK)</string>
+    <string name="bring_your_own_key">الرد الذكي بالذكاء الاصطناعي (AI)</string>
     <string name="use_external_llm_apis">الاتصال بمزودات الذكاء الاصطناعي الخارجية عبر API</string>
     <string name="manual_replies">الردود اليدوية</string>
     <string name="automatic_ai">الذكاء الاصطناعي التلقائي</string>
@@ -328,13 +328,13 @@
     <string name="save_configuration">حفظ الإعدادات</string>
     <string name="base_url_label">عنوان الخادم المخصص (Base URL)</string>
     <string name="manual_replies_desc">ردود نصية ثابتة ومحددة مسبقاً لجميع الرسائل.</string>
-    <string name="byok_replies_desc">استخدم بيانات اعتماد ومفاتيح مزود الذكاء الاصطناعي المخصص الخاص بك (BYOK).</string>
+    <string name="byok_replies_desc">استخدم مفاتيحك الخاصة أو اربط بوابتك وسيرفرك السحابي (OpenAI Compatible) مجاناً وبلا قيود.</string>
     <string name="automatic_ai_desc">ردود فورية تراعي سياق المحادثة عبر الخوادم المدارة.</string>
     <string name="status_not_subscribed">الحالة: غير مشترك</string>
     <string name="status_not_configured">الحالة: غير مهيأ</string>
     <string name="status_configured">الحالة: مهيأ وجاهز</string>
     <string name="edit_manual_reply">تعديل الرد اليدوي</string>
-    <string name="configure_custom_ai">تهيئة مزود الذكاء الاصطناعي المخصص</string>
+    <string name="configure_custom_ai">تهيئة خادم ونموذج الذكاء الاصطناعي</string>
     <string name="star_rating_1">نجمة واحدة</string>
     <string name="star_rating_2">نجمتان</string>
     <string name="star_rating_3">3 نجوم</string>

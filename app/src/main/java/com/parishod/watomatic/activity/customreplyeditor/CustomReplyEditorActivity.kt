@@ -243,6 +243,11 @@ class CustomReplyEditorActivity : BaseActivity(), SharedPreferences.OnSharedPref
         automaticAiSubscribedSection = findViewById(R.id.automatic_ai_subscribed_section)
         btnUnlockSubscription = findViewById(R.id.btn_unlock_subscription)
         btnUpgradePlan = findViewById(R.id.btn_upgrade_plan)
+
+        // In FOSS / Default flavor, hide the commercial subscription card entirely
+        if (com.parishod.watomatic.BuildConfig.FLAVOR != "GooglePlay") {
+            automaticAiProviderCard?.visibility = android.view.View.GONE
+        }
         subscriptionRenewalDate = findViewById(R.id.subscription_renewal_date)
         subscriptionPlanName = findViewById(R.id.subscription_plan_name)
         automaticAiRemainingReplies = findViewById(R.id.automatic_ai_remaining_replies)
@@ -338,6 +343,9 @@ class CustomReplyEditorActivity : BaseActivity(), SharedPreferences.OnSharedPref
         if(preferencesManager?.isByokRepliesEnabled == true){
             return REPLY_METHOD_BYOK
         }else if(preferencesManager?.isAutomaticAiRepliesEnabled == true){
+            if (com.parishod.watomatic.BuildConfig.FLAVOR != "GooglePlay") {
+                return REPLY_METHOD_BYOK
+            }
             return REPLY_METHOD_AUTOMATIC_AI
         }
         return REPLY_METHOD_MANUAL
